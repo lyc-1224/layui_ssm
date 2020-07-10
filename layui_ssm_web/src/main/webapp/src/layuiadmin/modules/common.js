@@ -6,7 +6,9 @@
  @License：LPPL
     
  */
- 
+
+var domainName = "http://localhost:8080";
+
 layui.define(function(exports){
   var $ = layui.$
   ,layer = layui.layer
@@ -17,8 +19,6 @@ layui.define(function(exports){
   
   //公共业务的逻辑处理可以写在此处，切换任何页面都会执行
   //……
-  
-  
   
   //退出
   admin.events.logout = function(){
@@ -31,7 +31,7 @@ layui.define(function(exports){
         
         //清空本地记录的 token，并跳转到登入页
         admin.exit(function(){
-          location.href = 'user/login.html';
+          location.href = 'src/views/user/login.html';
         });
       }
     });
