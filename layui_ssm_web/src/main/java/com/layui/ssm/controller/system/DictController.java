@@ -35,7 +35,7 @@ public class DictController {
      */
     @RequestMapping("/findAll.do")
     @ResponseBody
-    public ResponseUtil<Dict> findAll(@RequestParam(name = "page", defaultValue = "1") Integer page,@RequestParam(name = "limit", defaultValue = "10") Integer limit) {
+    public ResponseUtil<List<Dict>> findAll(@RequestParam(name = "page", defaultValue = "1") Integer page,@RequestParam(name = "limit", defaultValue = "10") Integer limit) {
         List<Dict> list = dictService.findAll(page,limit);
         System.out.println(list);
         //PageInfo就是一个分页Bean

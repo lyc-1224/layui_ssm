@@ -31,7 +31,7 @@ layui.define(function(exports){
         
         //清空本地记录的 token，并跳转到登入页
         admin.exit(function(){
-          location.href = 'src/views/user/login.html';
+          location.href = domainName+'/src/views/user/login.html';
         });
       }
     });

@@ -15,12 +15,27 @@ import java.util.List;
  **/
 @Data
 @ToString
-@NoArgsConstructor
-@AllArgsConstructor
 public class ResponseUtil<T> {
 
     private Integer code; // 状态码
     private String msg; // 消息
     private Long count; // 总数
-    private List<T> data; // 数据
+    private T data; // 数据
+
+    public ResponseUtil(Integer code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public ResponseUtil(Integer code, T data) {
+        this.code = code;
+        this.data = data;
+    }
+
+    public ResponseUtil(Integer code, String msg, Long count, T data) {
+        this.code = code;
+        this.msg = msg;
+        this.count = count;
+        this.data = data;
+    }
 }
