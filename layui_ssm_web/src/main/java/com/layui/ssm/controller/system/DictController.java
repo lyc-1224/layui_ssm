@@ -3,10 +3,10 @@ package com.layui.ssm.controller.system;
 import com.github.pagehelper.PageInfo;
 import com.layui.ssm.domain.system.Dict;
 import com.layui.ssm.service.system.IDictService;
-import com.sun.org.glassfish.external.probe.provider.annotations.ProbeParam;
 import layui.ssm.utils.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -49,10 +49,42 @@ public class DictController {
      * @return
      */
     @RequestMapping("/save.do")
-    public Dict save(Dict dict){
-        return dictService.save(dict);
+    @ResponseBody
+    public ResponseUtil<Dict> save(@RequestBody Dict dict){
+        dictService.save(dict);
+        return new ResponseUtil<>(0,null,0L,null);
     }
 
+    /**
+     * 字典表根据id删除数据的方法
+     * @param id
+     * @return
+     */
+    @RequestMapping("/delete.do")
+    public Dict delete(Integer id){
+        return dictService.deleteDict(id);
+    }
+
+    /**
+     * 字典表更新数据的方法
+     * @param dict
+     * @return
+     */
+    @RequestMapping("/update.do")
+    @ResponseBody
+    public Dict update(@RequestBody Dict dict){
+        return dictService.updateDict(dict);
+    }
+
+    /**
+     * 字典表根据id查询数据的方法
+     * @param id
+     * @return
+     */
+    @RequestMapping("/findDictById.do")
+    public Dict findDictById(Integer id){
+        return dictService.findDictById(id);
+    }
 
 
 }

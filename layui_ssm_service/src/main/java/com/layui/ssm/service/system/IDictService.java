@@ -16,9 +16,30 @@ public interface IDictService {
     List<Dict> findAll(Integer page,Integer limit);
 
     /**
-     * 询字典表新增数据的方法
+     * 字典表新增数据的方法
      * @param dict
      * @return
      */
-    Dict save(Dict dict);
+    void save(Dict dict);
+
+    /**
+     * 字典表根据id删除数据的方法
+     * @param id
+     * @return
+     */
+    Dict deleteDict(Integer id);
+
+    /**
+     * 字典表更新数据的方法
+     * @param dict
+     * @return
+     */
+    Dict updateDict(Dict dict);
+
+    /**
+     * 字典表根据id查询数据的方法
+     * @param id
+     * @return
+     */
+    Dict findDictById(Integer id);
 }

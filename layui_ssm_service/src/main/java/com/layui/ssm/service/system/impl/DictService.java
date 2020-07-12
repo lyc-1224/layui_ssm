@@ -1,7 +1,7 @@
 package com.layui.ssm.service.system.impl;
 
 import com.github.pagehelper.PageHelper;
-import com.layui.ssm.dao.system.IDictDao;
+import com.layui.ssm.dao.system.DictDao;
 import com.layui.ssm.domain.system.Dict;
 import com.layui.ssm.service.system.IDictService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ import java.util.List;
  **/
 @Service
 @Transactional
-public class DictServiceImpl implements IDictService {
+public class DictService implements IDictService {
 
     /**
      * 自动注入字典类持久层
      */
     @Autowired
-    private IDictDao dictDao;
+    private DictDao dictDao;
 
     /**
      * 查询字典表所有数据的方法
@@ -40,7 +40,34 @@ public class DictServiceImpl implements IDictService {
      * @param dict
      * @return
      */
-    public Dict save(Dict dict) {
-        return dictDao.save(dict);
+    public void save(Dict dict) {
+        dictDao.save(dict);
+    }
+
+    /**
+     * 字典表根据id删除数据的方法
+     * @param id
+     * @return
+     */
+    public Dict deleteDict(Integer id) {
+        return dictDao.deleteDict(id);
+    }
+
+    /**
+     * 字典表更新数据的方法
+     * @param dict
+     * @return
+     */
+    public Dict updateDict(Dict dict) {
+        return dictDao.updateDict(dict);
+    }
+
+    /**
+     * 字典表根据id查询数据的方法
+     * @param id
+     * @return
+     */
+    public Dict findDictById(Integer id) {
+        return dictDao.findDictById(id);
     }
 }

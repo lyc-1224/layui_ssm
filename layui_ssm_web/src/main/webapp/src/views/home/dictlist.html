@@ -102,19 +102,20 @@
                 //异步、同步都可以使用
                 layer.open({
                     type: 2
-                    ,title: '添加文章'
+                    ,title: '添加字典'
                     ,content: 'addform.html'
                     ,maxmin: true
                     ,area: ['600px', '400px']
                     ,btn: ['确定', '取消']
                     ,yes: function(index, layero){
                         //点击确认触发 iframe 内容中的按钮提交
-                        var submit = layero.find('iframe').contents().find("#layuiadmin-app-form-submit");
+                        var submit = layero.find('iframe').contents().find("#add-dict-submit");
                         submit.click();
+                        treeTable.reload();
                     }
                 });
                 //obj.add(arr)生成表格树,arr参数为数组，数组中元素的treeid字段值重复则被过滤掉
-                obj.add([]) //参数不传或为空数组时 => 新增空行
+                //obj.add([]) //参数不传或为空数组时 => 新增空行
             }
             if (event === 'async') { //点击方向箭头小图标时触发
                 //可ajax异步请求后台数据,回调obj.async(arr)生成表格树,arr参数为数组
