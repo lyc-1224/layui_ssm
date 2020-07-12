@@ -46,7 +46,7 @@
         </property>
     </bean>
     <!-- 扫描dao接口 -->
-    <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <bean id="mapperScanner" class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.layui.ssm.dao"/>
     </bean>
 
